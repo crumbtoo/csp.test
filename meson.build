@@ -12,7 +12,7 @@ dart_src = files(
 
 custom_target(
     'dart_scripts',
-    input : dart_src,
+    input : dart_src[0],
     output : 'script.js',
     command : [dc, 'compile', 'js', '-O3', '-o', '@OUTPUT@', '@INPUT@'],
     install : true,

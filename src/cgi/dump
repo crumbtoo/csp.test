@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo -n "Content-type: text/plain\n\n"
+
+cat -
+echo "\n------- env -------"
+env

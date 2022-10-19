@@ -1,12 +1,15 @@
-import "package:sqlite3/sqlite3.dart";
 import "dart:html";
+
+void postbutton_click(Event e)
+{
+	print("down");
+}
 
 int main()
 {
-	querySelector("h1")!.text = "hmmm?";
+	final Element? postbutton = querySelector("#postbutton");
 
-	for(Element? e in querySelectorAll("h1"))
-		e!.text = "lol";
+	postbutton!.onClick.listen(postbutton_click);
 
 	return 0;
 }
