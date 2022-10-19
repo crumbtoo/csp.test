@@ -1,0 +1,32 @@
+/* 
+ * curl https://raw.githubusercontent.com/catppuccin/palette/main/css/catppuccin.css \
+ * | grep 'ctp-mocha' | grep -v (rgb|hsl) | sed -e 's/mocha-//g' -e 's/ctp/cat/g' > catppuccin.css
+ */
+:root {
+	--cat-rosewater: #f5e0dc;
+	--cat-flamingo: #f2cdcd;
+	--cat-pink: #f5c2e7;
+	--cat-mauve: #cba6f7;
+	--cat-red: #f38ba8;
+	--cat-maroon: #eba0ac;
+	--cat-peach: #fab387;
+	--cat-yellow: #f9e2af;
+	--cat-green: #a6e3a1;
+	--cat-teal: #94e2d5;
+	--cat-sky: #89dceb;
+	--cat-sapphire: #74c7ec;
+	--cat-blue: #87b0f9;
+	--cat-lavender: #b4befe;
+	--cat-text: #c6d0f5;
+	--cat-subtext1: #b3bcdf;
+	--cat-subtext0: #a1a8c9;
+	--cat-overlay2: #8e95b3;
+	--cat-overlay1: #7b819d;
+	--cat-overlay0: #696d86;
+	--cat-surface2: #565970;
+	--cat-surface1: #43465a;
+	--cat-surface0: #313244;
+	--cat-base: #1e1e2e;
+	--cat-mantle: #181825;
+	--cat-crust: #11111b;
+}
