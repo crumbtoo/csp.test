@@ -2,7 +2,8 @@
  * curl https://raw.githubusercontent.com/catppuccin/palette/main/css/catppuccin.css \
  * | grep 'ctp-mocha' | grep -v (rgb|hsl) | sed -e 's/mocha-//g' -e 's/ctp/cat/g' > catppuccin.css
  */
-:root {
+:root
+{
 	--cat-rosewater: #f5e0dc;
 	--cat-flamingo: #f2cdcd;
 	--cat-pink: #f5c2e7;

@@ -1,4 +1,0 @@
-void sayhi()
-{
-	print("hiiilo");
-}

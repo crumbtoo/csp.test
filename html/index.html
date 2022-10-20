@@ -1,11 +1,44 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>apacheworky</title>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
 		<script defer src="../build/script.js"></script>
 	</head>
 	<body>
-		<h1>hiya bitchgirl</h1>
-		<button id="postbutton" type="button">ctrl+v</button>
+		<h1 style=
+			"position:absolute;
+		">hiya bitchgirl</h1>
+
+		<div class="post-container">
+			<img src="assets/cat.png" alt="cute raccoon picture"
+			style="width:100%;border-radius:4px;">
+
+			<div class="comment-wrapper">
+				<textarea
+						id="text-comment-input"
+						placeholder="compliments for the boy..."
+						rows="5"
+						class="comment-input">
+				</textarea>
+			</div>
+
+			<div class="comment-wrapper">
+				<input placeholder="your alias"
+						id="text-alias-input"
+						class="comment-input">
+			</div>
+
+			<button
+				class="submitbutton"
+				id="postbutton"
+				type=submit>
+				post comment
+			</button>
+		</div>
+
+		</div>
+
 	</body>
 </html>
 

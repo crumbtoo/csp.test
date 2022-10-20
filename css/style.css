@@ -1,0 +1,83 @@
+@import "catppuccin.css";
+
+:root
+{
+	--cat-highlight: var(--cat-rosewater);
+	--useless-gap: 8px;
+}
+
+body
+{
+	background-color: var(--cat-base);
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;  
+}
+::-moz-placeholder {
+   font-style: italic;  
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+}
+
+
+.post-container
+{
+	text-align: center;
+	width: 360px;
+	margin: 0 auto;
+	padding: var(--useless-gap);
+	border-radius: 4px;
+	background-color: var(--cat-mantle);
+}
+
+.submitbutton
+{
+	text-align: center;
+	margin-top: var(--useless-gap);
+	padding: 5px;
+	border-radius: 4px;
+	width: 100%;
+	background-color: var(--cat-surface1);
+	color: var(--cat-highlight);
+	border: none;
+	cursor: pointer;
+}
+
+.comment-wrapper
+{
+	display: block;
+	text-align: left;
+	margin-top: var(--useless-gap);
+	padding: 5px;
+	border-radius: 4px;
+	background-color: var(--cat-surface0);
+}
+
+.comment-input
+{
+	border: none;
+	width: 100%;
+	background-color: rgba(1, 1, 1, 0.0);
+	resize: vertical;
+
+	font-size: 13px;
+	font-family: "Hack", "Source Code Pro", monospace;
+	color: var(--cat-overlay1);
+}
+
+.comment-alias-input
+{
+	display: block;
+	border: none;
+	background-color: rgba(1, 1, 1, 0.0);
+
+	font-size: 13px;
+	font-family: "Hack", "Source Code Pro", monospace;
+	color: var(--cat-overlay1);
+}
+
