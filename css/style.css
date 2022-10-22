@@ -6,9 +6,15 @@
 	--useless-gap: 8px;
 }
 
+html
+{
+	height: 100%;
+}
+
 body
 {
 	background-color: var(--cat-base);
+	min-height: 100%;
 }
 
 ::-webkit-input-placeholder {
@@ -24,6 +30,15 @@ body
    font-style: italic; 
 }
 
+
+.post-container-wrapper
+{
+	height: 100%;
+	background: red;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .post-container
 {
