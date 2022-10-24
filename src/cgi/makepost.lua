@@ -1,10 +1,11 @@
 #!/usr/bin/env luvit
 
+local json = require("json")
+
+-- https://gist.github.com/lukespragg/d3d939ec534db920eab8 hehe
 local mod = 2^32
 local modm = mod-1
 
--- sha256 from here ta luv
--- https://gist.github.com/lukespragg/d3d939ec534db920eab8
 local function memoize(f)
     local mt = {}
     local t = setmetatable({}, mt)
@@ -178,7 +179,7 @@ local function DigestBlock(msg, i, H)
     H[8] = band(H[8] + h)
 end
 
-local function sha256(msg)
+function sha256(msg)
     msg = preproc(msg, #msg)
     local H = InitH256({})
     for i = 1, #msg, 64 do DigestBlock(msg, i, H) end
@@ -187,50 +188,10 @@ local function sha256(msg)
 end
 
 
-function fnv1(s)
-	local hash = 0x811c9dc5
+print('Content-type:text/plain\n');
+print('hi')
 
-	for i = 1, s:len() do
-		hash = hash * s:sub(i, i):byte()
-		hash = hash * 0x01000193
-	end
+local msg = io.stdin:read("*all")
 
-	return hash
-end
-
-function fileExists(path)
-	local f = io.open(path, "r")
-	if f ~= nil then
-		f:close()
-		return true;
-	else
-		return false;
-	end
-end
-
-local json = require("json")
-
-local msg = io.stdin:read()
-local j = json.parse(msg)
-local hash = sha256(j.comment)
-local path = "../../srv/comments/" .. hash
-
-print("Content-type:text/plain\n")
-
-if fileExists(path) then
-	print("Status: 400 Bad Request")
-	os.exit(1)
-end
-
-print("Status: 200 OK")
-
-local f = io.open(path, "a")
-if f == nil then print('err') end
-f:write(j.time..'\n')
-f:write(j.alias..'\n')
-f:write(j.comment)
-f:close()
-
-print("msg: "..msg)
-print("comment sha256: "..hash)
+print(msg)
 

@@ -4,6 +4,7 @@
 {
 	--cat-highlight: var(--cat-rosewater);
 	--useless-gap: 8px;
+	--border-radius: 4px;
 }
 
 html
@@ -41,7 +42,7 @@ body
 	padding-top: 20px;
 }
 
-.post-view
+.racc
 {
 	left: 0;
 }
@@ -57,7 +58,7 @@ body
 	text-align: center;
 	margin: 0 auto;
 	padding: var(--useless-gap);
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 	background-color: var(--cat-mantle);
 }
 
@@ -66,7 +67,7 @@ body
 	text-align: center;
 	margin-top: var(--useless-gap);
 	padding: 5px;
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 	width: 100%;
 	background-color: var(--cat-surface1);
 	color: var(--cat-highlight);
@@ -80,7 +81,7 @@ body
 	text-align: left;
 	margin-top: var(--useless-gap);
 	padding: 5px;
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 	background-color: var(--cat-surface0);
 }
 
@@ -105,5 +106,23 @@ body
 	font-size: 13px;
 	font-family: "Hack", "Source Code Pro", monospace;
 	color: var(--cat-overlay1);
+}
+
+.message
+{
+	display: block;
+	text-align: center;
+	margin-top: var(--useless-gap);
+	border-radius: var(--border-radius);
+	width: 100%;
+	border: none;
+	padding: 5px;
+
+	/* line-height: 3.4; */
+	/* height: 60px; */
+	font-family: "Hack", monospace;
+	font-size: 13px;
+	align-content: center;
+	text-align: center;
 }
 
