@@ -4,6 +4,7 @@
 {
 	--cat-highlight: var(--cat-rosewater);
 	--useless-gap: 8px;
+	--border-radius: 4px;
 }
 
 html
@@ -30,14 +31,26 @@ body
    font-style: italic; 
 }
 
-
-.post-container-wrapper
+.split
 {
 	height: 100%;
-	background: red;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	width: 50%;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+.racc
+{
+	left: 0;
+}
+
+.comments
+{
+	right: 0;
+	overflow: scroll;
 }
 
 .post-container
@@ -46,7 +59,7 @@ body
 	width: 360px;
 	margin: 0 auto;
 	padding: var(--useless-gap);
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 	background-color: var(--cat-mantle);
 }
 
@@ -55,7 +68,7 @@ body
 	text-align: center;
 	margin-top: var(--useless-gap);
 	padding: 5px;
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 	width: 100%;
 	background-color: var(--cat-surface1);
 	color: var(--cat-highlight);
@@ -69,7 +82,7 @@ body
 	text-align: left;
 	margin-top: var(--useless-gap);
 	padding: 5px;
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 	background-color: var(--cat-surface0);
 }
 
@@ -94,5 +107,23 @@ body
 	font-size: 13px;
 	font-family: "Hack", "Source Code Pro", monospace;
 	color: var(--cat-overlay1);
+}
+
+.message
+{
+	display: block;
+	text-align: center;
+	margin-top: var(--useless-gap);
+	border-radius: var(--border-radius);
+	width: 100%;
+	border: none;
+	padding: 5px;
+
+	/* line-height: 3.4; */
+	/* height: 60px; */
+	font-family: "Hack", monospace;
+	font-size: 13px;
+	align-content: center;
+	text-align: center;
 }
 

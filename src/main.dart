@@ -1,26 +1,62 @@
 import "dart:html";
-/* import 'dart:web_audio'; */
+import "dart:convert";
+import 'package:http/http.dart' as http;
+import "helpers.dart";
 
-final Element? postbutton = querySelector("#postbutton");
-
-void postbutton_click(Event e)
+Future<http.Response?> newpost(String? alias, String? comment) async
 {
-	/* String? alias = document.querySelector("#text-alias-input") */
-	/* 	!.attributes["value"]; */
-	/* String? text = document.querySelector("#text-comment-input") */
-	/* 	!.attributes["value"]; */
+	if(alias == null || comment == null)
+		return null;
 
-	/* print("alias: $alias"); */
-	/* print("text: $text"); */
+	return http.post(
+        Uri.parse('http://csp.test/newpost'),
+        headers: <String, String>{
+            'Content-Type': 'application/json',
+        },
+        body: jsonEncode(<String, String>{
+            'alias': alias,
+            'comment': comment
+        }),
+    );
+}
 
-	TextAreaElement alias_ta = querySelector("#text-alias-input") as TextAreaElement;
-	String? alias = alias_ta.value;
-	print("alias:");
-	print(alias);
+void postbutton_click(Event e) async
+{
+	TextInputElement alias_e = querySelector("#text-alias-input")
+		as TextInputElement;
+	TextAreaElement comment_e = querySelector("#text-comment-input")
+		as TextAreaElement;
+	print("alias: ${alias_e.value}");
+	print("comment: ${comment_e.value}");
+
+
+	if(isPseudoEmpty(comment_e.value) || isPseudoEmpty(alias_e.value))
+	{
+		message(alias_e.parent!.parent, "var(--cat-red)", "var(--cat-crust)",
+			"you know what you've done");
+	}
+	else
+	{
+		http.Response? r = await newpost(alias_e.value, comment_e.value);
+
+		if(r == null)
+		{
+			message(alias_e.parent!.parent, "var(--cat-red)",
+			"var(--cat-crust)", "uhhh");
+			return;
+		}
+
+		print("resp: ${r.body}");
+
+		message(alias_e.parent!.parent, "var(--cat-green)",
+			"var(--cat-crust)", "it's on her way...");
+	}
 }
 
 int main()
 {
+	final Element? postbutton = querySelector("#postbutton");
+
 	postbutton!.onClick.listen(postbutton_click);
 
 	return 0;
