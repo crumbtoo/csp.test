@@ -30,20 +30,31 @@ body
    font-style: italic; 
 }
 
-
-.post-container-wrapper
+.split
 {
 	height: 100%;
-	background: red;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	width: 50%;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+.post-view
+{
+	left: 0;
+}
+
+.comment-view
+{
+	right: 0;
+	overflow: scroll;
 }
 
 .post-container
 {
 	text-align: center;
-	width: 360px;
 	margin: 0 auto;
 	padding: var(--useless-gap);
 	border-radius: 4px;

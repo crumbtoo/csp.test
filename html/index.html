@@ -6,11 +6,8 @@
 		<script defer src="../build/script.js"></script>
 	</head>
 	<body>
-		<h1 style=
-			"position:absolute;
-		">hiya bitchgirl</h1>
-
-		<div class="post-container-wrapper">
+		<h1 style="position:absolute;">hiya bitchgirl</h1>
+		<div class="split post-view">
 			<div class="post-container">
 				<img src="assets/cat.png" alt="cute raccoon picture"
 				style="width:100%;border-radius:4px;">
@@ -20,8 +17,7 @@
 							id="text-comment-input"
 							placeholder="compliments for the boy..."
 							rows="5"
-							class="comment-input">
-					</textarea>
+							class="comment-input"></textarea>
 				</div>
 
 				<div class="comment-wrapper">
@@ -39,6 +35,11 @@
 			</div>
 		</div>
 
+		<div class="split comment-view">
+			<div class="post-container">
+				$COMMENTS
+			</div>
+		</div>
 	</body>
 </html>
 
