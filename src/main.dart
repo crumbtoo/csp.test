@@ -40,7 +40,7 @@ Future<http.Response> postcomment(String? alias, String? comment) async
 	headers["Content-type"] = "application/json";
 	String jsonbody = jsonEncode(
 	{
-		"timestamp": DateTime.now().millisecondsSinceEpoch,
+		"timestamp": DateTime.now().millisecondsSinceEpoch / 1000,
 		"alias": alias,
 		"comment": comment,
 	});

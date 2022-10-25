@@ -52,7 +52,7 @@ body
 .comment-view
 {
 	right: 0;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 .post-container
@@ -127,5 +127,41 @@ body
 	font-size: 13px;
 	align-content: center;
 	text-align: center;
+}
+
+.comment-comment
+{
+	/* width: 100%; */
+	background-color: var(--cat-mantle);
+	margin-bottom: var(--useless-gap);
+	color: var(--cat-text);
+	font-family: "Hack", monospace;
+	padding: var(--useless-gap);
+	text-align: left;
+}
+
+.comment-comment-comment
+{
+	overflow-wrap: anywhere;
+}
+
+.comment-comment-alias
+{
+	/* padding: 5%; */
+	padding-bottom: 0;
+	color: var(--cat-rosewater);
+	text-align: left;
+	font-family: "Hack", monospace;
+	font-size: 19px;
+	margin: var(--useless-gap);
+}
+
+.comment-comment-date
+{
+	color: var(--cat-crust);
+	text-align: right;
+	align: right;
+	font-size: 15px;
+	font-family: "Hack", monospace;
 }
 

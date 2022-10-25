@@ -5,14 +5,16 @@ echo # newline
 
 genhtml()
 {
-	format=\
-		"alias: %s
-		time: %s
+	format="time: %s
+		alias: %s
 		content: %s"
 
-	for line in $(cat "../../srv/comments"); do
-		echo "$line"
-	done
+	while read line; do
+		c_time=$(date -d "@$(echo "$line" | cut -d':' -f1)" "+%I:%M, %y/%m/%d")
+		c_alias=$(echo "$line" | cut -d':' -f2 | sed 's/@COLON@/:/')
+		c_comment=$(echo "$line" | cut -d':' -f3 | sed 's/@NEWLINE@/<br>/g')
+		printf "$format<br>" "$c_time" "$c_alias" "$c_comment"
+	done < "../../srv/comments"
 }
 
 COMMENTS="$(genhtml)" envsubst < "../../html/index.html"
