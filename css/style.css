@@ -16,6 +16,7 @@ body
 {
 	background-color: var(--cat-base);
 	min-height: 100%;
+	padding: var(--useless-gap) 15%;
 }
 
 ::-webkit-input-placeholder {
@@ -42,9 +43,10 @@ body
 	padding-top: 20px;
 }
 
-.racc
+.racc-view
 {
 	left: 0;
+	align-content: center;
 }
 
 .comment-view
@@ -55,11 +57,12 @@ body
 
 .post-container
 {
+	width: 70%;
 	text-align: center;
 	margin: 0 auto;
 	padding: var(--useless-gap);
 	border-radius: var(--border-radius);
-	background-color: var(--cat-mantle);
+	background-color: var(--cat-crust);
 }
 
 .submitbutton

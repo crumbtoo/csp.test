@@ -3,4 +3,17 @@
 echo "Content-type: text/html"
 echo # newline
 
-COMMENTS="$(luvit gencomments.lua)" envsubst < "../../html/index.html"
+genhtml()
+{
+	format=\
+		"alias: %s
+		time: %s
+		content: %s"
+
+	for line in $(cat "../../srv/comments"); do
+		echo "$line"
+	done
+}
+
+COMMENTS="$(genhtml)" envsubst < "../../html/index.html"
+

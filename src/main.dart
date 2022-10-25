@@ -33,7 +33,7 @@ void message(Element? e, String bgcolor, String fgcolor, String text) async
 
 Future<http.Response> postcomment(String? alias, String? comment) async
 {
-	String url = "http://puppy.tf/newpost";
+	String url = "http://csp.test/newpost";
 	/* String url = "http://puppy.tf/cgi/dump"; */
 	Map<String, String> headers = new HashMap();
 	headers["Accept"] = "application/json";
@@ -54,8 +54,10 @@ Future<http.Response> postcomment(String? alias, String? comment) async
 
 void postbutton_click(Event e) async
 {
-	TextInputElement? alias = querySelector("#text-alias-input") as TextInputElement;
-	TextAreaElement? comment = querySelector("#text-comment-input") as TextAreaElement;
+	TextInputElement? alias = querySelector("#text-alias-input")
+		as TextInputElement;
+	TextAreaElement? comment = querySelector("#text-comment-input")
+		as TextAreaElement;
 
 
 	print("alias: ${alias.value}");
@@ -63,7 +65,8 @@ void postbutton_click(Event e) async
 
 
 	if(isPseudoEmpty(alias.value) || isPseudoEmpty(comment.value))
-		message(alias.parent, "var(--cat-red)", "var(--cat-crust)", "you know what you've done wrong :(");
+		message(alias.parent, "var(--cat-red)", "var(--cat-crust)",
+			"you know what you've done wrong >:(");
 	else
 	{
 		http.Response r = await postcomment(alias.value, comment.value);
@@ -73,10 +76,10 @@ void postbutton_click(Event e) async
 
 		if(r.statusCode == 200)
 		{
-			message(alias.parent, "var(--cat-green)", "var(--cat-crust)", "it's on her way love");
+			message(alias.parent, "var(--cat-green)", "var(--cat-crust)",
+				"it's on her way love");
 			await Future.delayed(Duration(seconds: 3));
-			/* reload(); */
-			window.location.assign(window.location.href);
+			/* window.location.assign(window.location.href); */
 		}
 	}
 }
