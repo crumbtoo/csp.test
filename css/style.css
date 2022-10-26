@@ -76,6 +76,7 @@ body
 	color: var(--cat-highlight);
 	border: none;
 	cursor: pointer;
+	font-family: "Hack", "Source Code Pro", monospace;
 }
 
 .comment-wrapper
@@ -138,28 +139,31 @@ body
 	font-family: "Hack", monospace;
 	padding: var(--useless-gap);
 	text-align: left;
+	border-radius: var(--border-radius);
 }
 
 .comment-comment-comment
 {
+	text-indent: 40px;
 	overflow-wrap: anywhere;
 }
 
 .comment-comment-alias
 {
-	/* padding: 5%; */
+	overflow-wrap: anywhere;
 	padding-bottom: 0;
 	color: var(--cat-rosewater);
 	text-align: left;
 	font-family: "Hack", monospace;
-	font-size: 19px;
+	font-size: 17px;
 	margin: var(--useless-gap);
 }
 
 .comment-comment-date
 {
-	color: var(--cat-crust);
+	color: var(--cat-surface0);
 	text-align: right;
+	margin-top: 5px;
 	align: right;
 	font-size: 15px;
 	font-family: "Hack", monospace;

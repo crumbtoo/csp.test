@@ -33,8 +33,8 @@ void message(Element? e, String bgcolor, String fgcolor, String text) async
 
 Future<http.Response> postcomment(String? alias, String? comment) async
 {
-	String url = "http://csp.test/newpost";
-	/* String url = "http://puppy.tf/cgi/dump"; */
+	/* String url = "http://csp.test/newpost"; */
+	String url = "http://puppy.tf/newpost";
 	Map<String, String> headers = new HashMap();
 	headers["Accept"] = "application/json";
 	headers["Content-type"] = "application/json";
@@ -79,7 +79,7 @@ void postbutton_click(Event e) async
 			message(alias.parent, "var(--cat-green)", "var(--cat-crust)",
 				"it's on her way love");
 			await Future.delayed(Duration(seconds: 3));
-			/* window.location.assign(window.location.href); */
+			window.location.assign(window.location.href);
 		}
 	}
 }
