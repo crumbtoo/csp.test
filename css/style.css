@@ -2,7 +2,7 @@
 
 :root
 {
-	--cat-highlight: var(--cat-rosewater);
+	--cat-accent: var(--cat-rosewater);
 	--useless-gap: 8px;
 	--border-radius: 4px;
 }
@@ -73,7 +73,7 @@ body
 	border-radius: var(--border-radius);
 	width: 100%;
 	background-color: var(--cat-surface1);
-	color: var(--cat-highlight);
+	color: var(--cat-accent);
 	border: none;
 	cursor: pointer;
 	font-family: "Hack", "Source Code Pro", monospace;
@@ -167,5 +167,23 @@ body
 	align: right;
 	font-size: 15px;
 	font-family: "Hack", monospace;
+}
+
+.comment-wrapper, .submitbutton
+{
+	outline-style: solid;
+	outline-width: 0px;
+	outline-color: var(--cat-accent);
+
+	transition-property: border-radius, outline-width;
+	transition-duration: 0.2s;
+	transition-timing-function: linear;
+	transition-delay: 0s;
+}
+
+.submitbutton:hover, .comment-wrapper:hover
+{
+	border-radius: 20px;
+	outline-width: 0.2em;
 }
 

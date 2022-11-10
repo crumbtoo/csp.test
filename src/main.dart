@@ -33,14 +33,15 @@ void message(Element? e, String bgcolor, String fgcolor, String text) async
 
 Future<http.Response> postcomment(String? alias, String? comment) async
 {
-	/* String url = "http://csp.test/newpost"; */
-	String url = "http://puppy.tf/newpost";
+	String url = "http://csp.test/newpost";
+	/* String url = "http://puppy.tf/newpost"; */
 	Map<String, String> headers = new HashMap();
 	headers["Accept"] = "application/json";
 	headers["Content-type"] = "application/json";
 	String jsonbody = jsonEncode(
 	{
-		"timestamp": DateTime.now().millisecondsSinceEpoch / 1000,
+		/* at least its not javascript at least its not javascript at leas */
+		"timestamp": (DateTime.now().millisecondsSinceEpoch / 1000).toInt(),
 		"alias": alias,
 		"comment": comment,
 	});
@@ -66,7 +67,7 @@ void postbutton_click(Event e) async
 
 	if(isPseudoEmpty(alias.value) || isPseudoEmpty(comment.value))
 		message(alias.parent, "var(--cat-red)", "var(--cat-crust)",
-			"you know what you've done wrong >:(");
+			"it's rude to leave an input box empty...");
 	else
 	{
 		http.Response r = await postcomment(alias.value, comment.value);
@@ -77,7 +78,7 @@ void postbutton_click(Event e) async
 		if(r.statusCode == 200)
 		{
 			message(alias.parent, "var(--cat-green)", "var(--cat-crust)",
-				"it's on her way love");
+				"it's on her way");
 			await Future.delayed(Duration(seconds: 3));
 			window.location.assign(window.location.href);
 		}
