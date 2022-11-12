@@ -1,0 +1,3 @@
+[submodule "dep/banbuilder"]
+	path = dep/banbuilder
+	url = https://github.com/snipe/banbuilder

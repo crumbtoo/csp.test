@@ -12,6 +12,9 @@ import "catppuccin.dart";
 
 final proffilter = ProfanityFilter();
 
+/**
+ * @brief disable post button for 5 seconds
+ */
 Future<void> postbtn_cooldown() async
 {
 	ButtonElement? postbutton = querySelector("#postbutton")
@@ -28,29 +31,47 @@ Future<void> postbtn_cooldown() async
 	postbutton.disabled = false;
 }
 
-void message(Element? e, String bgcolor, String fgcolor, String text) async
+/**
+ * @brief create an alert message
+ *
+ * @param e sibling element for the message
+ * @param bgcolour background colour for message box
+ * @param fgcolour text colour for message
+ * @param text message
+ */
+void message(Element? e, String bgcolour, String fgcolor, String text) async
 {
 	if(e == null)
 		return;
 
 	final errw = DivElement();
 	errw.classes.add("error-wrapper");
-	errw.style.backgroundColor = bgcolor;
+	errw.style.backgroundColor = bgcolour;
 
 	final errt = ParagraphElement();
 	errt.style.color = fgcolor;
 	errt.innerText = text;
 
 	errw.children.add(errt);
+
 	e.parent!.children.add(errw);
+
 	await Future.delayed(Duration(seconds: 2));
 	errw.remove();
 }
 
+/**
+ * @brief wrapper to post /newpost
+ *
+ * @param alias commenter name
+ * @param comment comment body
+ *
+ * @returns server response
+ */
 Future<http.Response> postcomment(String? alias, String? comment) async
 {
-	String url = "http://csp.test/newpost";
-	/* String url = "http://puppy.tf/newpost"; */
+	/* String url = "http://csp.test/newpost"; */
+	String url = "http://puppy.tf/newpost";
 	Map<String, String> headers = new HashMap();
 	headers["Accept"] = "application/json";
 	headers["Content-type"] = "application/json";
@@ -68,6 +89,9 @@ Future<http.Response> postcomment(String? alias, String? comment) async
 	);
 }
 
+/**
+ * @brief post button callback
+ */
 void postbutton_click(Event e) async
 {
 	TextInputElement? alias = querySelector("#text-alias-input")
@@ -105,10 +129,17 @@ void postbutton_click(Event e) async
 http.Client client = http.Client();
 Map<String, String> update_headers = new HashMap();
 
+/**
+ * @brief wrapper to request /askupdate
+ *
+ * @param time unix time in seconds to fetch all comments posted after 
+ *
+ * @returns server response
+ */
 Future<http.Response> askupdate(int time)
 {
-	String url = "http://csp.test/askupdate";
-	/* String url = "http://puppy.tf/newpost"; */
+	/* String url = "http://csp.test/askupdate"; */
+	String url = "http://puppy.tf/askupdate";
 	String jsonbody = jsonEncode(
 	{
 		"timestamp": time,
@@ -121,29 +152,9 @@ Future<http.Response> askupdate(int time)
 	);
 }
 
-/* class IFuckingHateOOPSoGoddamnMuch */
-/* { */
-/* 	String alias; */
-/* 	String comment; */
-
-/* 	IFuckingHateOOPSoGoddamnMuch(this.alias, this.comment); */
-
-/* 	factory IFuckingHateOOPSoGoddamnMuch.fromJson(dynamic json) */
-/* 	{ */
-/* 		return IFuckingHateOOPSoGoddamnMuch */
-/* 		( */
-/* 			json['alias'] as String, */
-/* 			json['comment'] as String */
-/* 		); */
-/* 	} */
-
-/* 	@override */
-/* 	String toString() */
-/* 	{ */
-/* 		return '{ ${this.alias}: ${this.comment} }'; */
-/* 	} */
-/* } */
-
+/**
+ * @brief add comments to the document using the json response from /askupdate
+ */
 void makecomments(Map<String, dynamic> json)
 {
 	var jcomm = json["newcomments"] as List;
@@ -151,9 +162,6 @@ void makecomments(Map<String, dynamic> json)
 
 	if(commhere == null)
 		return;
-
-	/* List<IFuckingHateOOPSoGoddamnMuch> newcomms = jcomm */
-	/* 	.map((e) => IFuckingHateOOPSoGoddamnMuch.fromJson(e)).toList(); */
 
 	for(Map<String, dynamic> e in jcomm)
 	{
@@ -195,6 +203,9 @@ void makecomments(Map<String, dynamic> json)
 
 bool refresh_comments = false;
 
+/**
+ * @brief sleep for `delaysec` seconds, or until a refresh is manually triggered
+ */
 Future<void> commentsSleep(int delaysec) async
 {
 	int t1 = timesec();
@@ -205,14 +216,18 @@ Future<void> commentsSleep(int delaysec) async
 	refresh_comments = false;
 }
 
-void watchcomments([bool keep = true]) async
+/**
+ * @brief start listening for new comments & add them to view
+ */
+void watchcomments() async
 {
 	int last_update = 0;
 	update_headers["Accept"] = "application/json";
 	update_headers["Content-type"] = "application/json";
 	print("watchcomments()");
 
-	do {
+	while(true)
+	{
 		http.Response r = await askupdate(last_update);
 		Map<String, dynamic> json = jsonDecode(r.body);
 
@@ -221,7 +236,7 @@ void watchcomments([bool keep = true]) async
 
 		last_update = timesec();
 		await commentsSleep(15);
-	} while(keep);
+	}
 }
 
 int main()

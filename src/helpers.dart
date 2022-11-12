@@ -1,5 +1,12 @@
 import "dart:html";
 
+/**
+ * @brief test if string is null, empty, or comprised of entirely whitespace
+ *
+ * @param s string to test
+ *
+ * @returns true if string is empty, false otherwise
+ */
 bool isPseudoEmpty(String? s)
 {
 	if(s == null || s.length == 0)
@@ -17,35 +24,13 @@ bool isPseudoEmpty(String? s)
 	return true;
 }
 
-void message(Element? parent, String bg, String fg, String s) async
-{
-	final Element msg = DivElement();
-
-	if(parent == null)
-	{
-		/* dart's shit static analysis wont let me use
-		 * `if((parent = querySelector("body")) == null)` */
-
-		parent = querySelector("body");
-		if(parent == null)
-			return;
-	}
-	/* else */
-	/* 	msg.style.width = "100%"; */
-
-	msg.innerText = s;
-	msg.classes.add("message");
-	msg.style.backgroundColor = bg;
-	msg.style.color = fg;
-
-	parent.children.add(msg);
-
-	await Future.delayed(Duration(seconds: 3));
-
-	msg.remove();
-}
-
-/* at least its not javascript at least its not javascript at leas */
+/**
+ * @brief returns unix time in seconds
+ *
+ * @returns unix time in seconds
+ *
+ * at least its not javascript at least its not javascript at leas
+ */
 int timesec()
 {
 	return (DateTime.now().millisecondsSinceEpoch / 1000).toInt();
