@@ -38,6 +38,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "profanity_filter",
+      "rootUri": "file:///Users/crumble/.pub-cache/hosted/pub.dartlang.org/profanity_filter-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///Users/crumble/.pub-cache/hosted/pub.dartlang.org/source_span-1.9.1",
       "packageUri": "lib/",
@@ -68,7 +74,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-10-26T17:02:45.043604Z",
+  "generated": "2022-11-11T21:28:44.026174Z",
   "generator": "pub",
   "generatorVersion": "2.18.2"
 }

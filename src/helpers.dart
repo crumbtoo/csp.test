@@ -45,3 +45,9 @@ void message(Element? parent, String bg, String fg, String s) async
 	msg.remove();
 }
 
+/* at least its not javascript at least its not javascript at leas */
+int timesec()
+{
+	return (DateTime.now().millisecondsSinceEpoch / 1000).toInt();
+}
+

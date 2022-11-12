@@ -17,7 +17,8 @@ end
 local f = io.open("../../srv/comments", "a")
 
 local alias = t["alias"]:gsub(":", "@COLON@")
-local comment = t["comment"]:gsub("\n", "@NEWLINE@")
+local comment = t["comment"]:gsub("\n", "@NEWLINE@"):gsub(":", "@COLON@")
+
 local s = string.format("%s:%s:%s\n",
 	t["timestamp"], alias, comment)
 

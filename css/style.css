@@ -20,16 +20,16 @@ body
 }
 
 ::-webkit-input-placeholder {
-   font-style: italic;
+	font-style: italic;
 }
 :-moz-placeholder {
-   font-style: italic;  
+	font-style: italic;  
 }
 ::-moz-placeholder {
-   font-style: italic;  
+	font-style: italic;  
 }
 :-ms-input-placeholder {  
-   font-style: italic; 
+	font-style: italic; 
 }
 
 .split
@@ -76,7 +76,33 @@ body
 	color: var(--cat-accent);
 	border: none;
 	cursor: pointer;
-	font-family: "Hack", "Source Code Pro", monospace;
+	font-family: "Hack NF", "Source Code Pro", monospace;
+	transition-property: opacity border-radius outline-width;
+	transition-duration: 0.2s;
+	transition-timing-function: linear;
+	transition-delay: 0s;
+}
+
+.submitbutton.disabled
+{
+	opacity: 0.5;
+}
+
+.error-wrapper
+{
+	display: block;
+	text-align: center;
+	margin-top: var(--useless-gap);
+	padding: 2px 5px;
+	border-radius: var(--border-radius);
+	background-color: var(--cat-surface0);
+}
+
+.error-wrapper p
+{
+	font-family: "Hack NF", monospace;
+	font-size: 1em;
+	color: var(--cat-text);
 }
 
 .comment-wrapper
@@ -97,7 +123,7 @@ body
 	resize: vertical;
 
 	font-size: 13px;
-	font-family: "Hack", "Source Code Pro", monospace;
+	font-family: "Hack NF", "Source Code Pro", monospace;
 	color: var(--cat-overlay1);
 }
 
@@ -108,7 +134,7 @@ body
 	background-color: rgba(1, 1, 1, 0.0);
 
 	font-size: 13px;
-	font-family: "Hack", "Source Code Pro", monospace;
+	font-family: "Hack NF", "Source Code Pro", monospace;
 	color: var(--cat-overlay1);
 }
 
@@ -124,7 +150,7 @@ body
 
 	/* line-height: 3.4; */
 	/* height: 60px; */
-	font-family: "Hack", monospace;
+	font-family: "Hack NF", monospace;
 	font-size: 13px;
 	align-content: center;
 	text-align: center;
@@ -136,7 +162,7 @@ body
 	background-color: var(--cat-mantle);
 	margin-bottom: var(--useless-gap);
 	color: var(--cat-text);
-	font-family: "Hack", monospace;
+	font-family: "Hack NF", monospace;
 	padding: var(--useless-gap);
 	text-align: left;
 	border-radius: var(--border-radius);
@@ -154,7 +180,7 @@ body
 	padding-bottom: 0;
 	color: var(--cat-rosewater);
 	text-align: left;
-	font-family: "Hack", monospace;
+	font-family: "Hack NF", monospace;
 	font-size: 17px;
 	margin: var(--useless-gap);
 }
@@ -166,7 +192,7 @@ body
 	margin-top: 5px;
 	align: right;
 	font-size: 15px;
-	font-family: "Hack", monospace;
+	font-family: "Hack NF", monospace;
 }
 
 .comment-wrapper, .submitbutton
@@ -185,5 +211,20 @@ body
 {
 	border-radius: 20px;
 	outline-width: 0.2em;
+}
+
+input
+{
+	outline:none;
+}
+
+input.middle:focus
+{
+	outline-width: 0;
+}
+
+input:focus, select:focus, textarea:focus, button:focus
+{
+	outline: none;
 }
 

@@ -26,5 +26,6 @@ genhtml()
 	done
 }
 
-COMMENTS="$(genhtml)" envsubst < "../../html/index.html"
+# COMMENTS="$(genhtml)" envsubst < "../../html/index.html"
+cat '../../html/index.html'
 

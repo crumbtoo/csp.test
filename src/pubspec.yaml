@@ -5,4 +5,5 @@ environment:
 
 dependencies:
   http: ^0.13.5
+  profanity_filter: ^2.0.0
 
