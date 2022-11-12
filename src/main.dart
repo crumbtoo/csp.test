@@ -174,6 +174,7 @@ void makecomments(Map<String, dynamic> json)
 
 		commhere.children.insert(0, comcom);
 		comcom.classes.add("comment-comment");
+		comcom.classes.add("fresh");
 
 		comcom.children.add(comcoma);
 		comcoma.classes.add("comment-comment-alias");
@@ -186,6 +187,9 @@ void makecomments(Map<String, dynamic> json)
 		comcom.children.add(comcomd);
 		comcomd.classes.add("comment-comment-date");
 		comcomd.innerText = e["timestamp"];
+
+		Future.delayed(Duration(milliseconds: 700),
+			() => comcom.classes.remove("fresh"));
 	}
 }
 

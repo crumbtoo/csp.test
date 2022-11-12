@@ -113,6 +113,17 @@ body
 	padding: 5px;
 	border-radius: var(--border-radius);
 	background-color: var(--cat-surface0);
+
+}
+
+.comment-wrapper
+{
+	display: block;
+	text-align: left;
+	margin-top: var(--useless-gap);
+	padding: 5px;
+	border-radius: var(--border-radius);
+	background-color: var(--cat-surface0);
 }
 
 .comment-input
@@ -166,6 +177,16 @@ body
 	padding: var(--useless-gap);
 	text-align: left;
 	border-radius: var(--border-radius);
+
+	transition-property: background-color;
+	transition-duration: 0.5s;
+	transition-timing-function: linear;
+	transition-delay: 0s;
+}
+
+.comment-comment.fresh
+{
+	background-color: var(--cat-overlay2);
 }
 
 .comment-comment-comment
